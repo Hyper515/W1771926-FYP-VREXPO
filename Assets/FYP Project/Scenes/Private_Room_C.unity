@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 243181191}
   - component: {fileID: 243181190}
   m_Layer: 5
-  m_Name: RawImage (1)
+  m_Name: Design Thumbnail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243568993}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.9, z: -118.6}
+  m_LocalPosition: {x: -125.3, y: -5.4, z: -42.7}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 395480115}
@@ -933,7 +933,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526113710}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -91.8, y: 0, z: 0}
+  m_LocalPosition: {x: 9.1, y: -5.1, z: 96.8}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 1917406767}
@@ -1646,7 +1646,7 @@ GameObject:
   - component: {fileID: 863873483}
   - component: {fileID: 863873482}
   m_Layer: 5
-  m_Name: Zoology Button
+  m_Name: Designing Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1686,7 +1686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skyboxes:
   - {fileID: 2100000, guid: f087bbf9d32599445b850de1b5cb6c9c, type: 2}
-  - {fileID: 2100000, guid: e041a0368e796364cb641d9bfe544aaf, type: 2}
+  - {fileID: 2100000, guid: a5076d4dc42e9eb4ca675abe4f6560b8, type: 2}
 --- !u!114 &863873483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,7 +1828,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945367399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 101.4, y: 39.4, z: 96.1}
+  m_LocalPosition: {x: 85.6, y: 39.4, z: 96.1}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 395480115}
@@ -2700,7 +2700,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2801,7 +2801,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Zoo
+  m_text: 'Design
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
