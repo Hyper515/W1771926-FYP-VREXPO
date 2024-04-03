@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 03ce398f0a8ddb140ac8555466a53d30, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d588a8f39465bf5459ba373f2e3dc0d6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.23589984, g: 0.24571617, b: 0.20400648, a: 1}
+  m_IndirectSpecularColor: {r: 0.28686658, g: 0.34897107, b: 0.44636345, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 544807768}
   - component: {fileID: 544807767}
   m_Layer: 5
-  m_Name: WWI Thumbnail 3
+  m_Name: Stratagy Meeting Thumbnail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 780012226}
   - component: {fileID: 780012225}
   m_Layer: 5
-  m_Name: WWI Button
+  m_Name: D-Day Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Command Center
+  m_text: Stratagy Meetings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1725,7 +1725,7 @@ GameObject:
   - component: {fileID: 863873483}
   - component: {fileID: 863873482}
   m_Layer: 5
-  m_Name: WWI Button 2
+  m_Name: WWI Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2001,7 +2001,7 @@ GameObject:
   - component: {fileID: 1070350274}
   - component: {fileID: 1070350273}
   m_Layer: 5
-  m_Name: WWI Thumbnail
+  m_Name: D-Day Thumbnail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2674,7 +2674,7 @@ GameObject:
   - component: {fileID: 1731141647}
   - component: {fileID: 1731141646}
   m_Layer: 5
-  m_Name: WWI Thumbnail 2
+  m_Name: WWI Thumbnail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2891,7 +2891,7 @@ GameObject:
   - component: {fileID: 2000696029}
   - component: {fileID: 2000696028}
   m_Layer: 5
-  m_Name: WWI Button 3
+  m_Name: Stratagy Meeting Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
