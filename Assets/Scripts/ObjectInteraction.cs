@@ -7,7 +7,6 @@ public class ObjectInteraction : MonoBehaviour
     public AudioClip interactSound; // Audio clip to play when interacted with
 
     private AudioSource audioSource;
-    private bool hasInteracted = false;
 
     void Start()
     {
@@ -36,7 +35,7 @@ public class ObjectInteraction : MonoBehaviour
     void Update()
     {
         // Check for user input (Fire1 command)
-        if (Input.GetButtonDown("Fire1") && !hasInteracted)
+        if (Input.GetButtonDown("Fire1") || Input.GetAxis("Fire1") > 0)
         {
             // Raycast from the center of the screen in VR
             RaycastHit hit;
@@ -49,8 +48,6 @@ public class ObjectInteraction : MonoBehaviour
                     {
                         audioSource.Play();
                     }
-                    // Set the object as interacted to prevent multiple interactions
-                    hasInteracted = true;
                 }
             }
         }
