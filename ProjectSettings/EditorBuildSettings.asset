@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/FYP Project/Scenes/Private_Room_A.unity
     guid: db3526aeb959cd14fbe132f813e47766
   - enabled: 1
+    path: Assets/FYP Project/Scenes/Private_Room_B.unity
+    guid: c423d0aaf1d4d52468d30e4328b07559
+  - enabled: 1
+    path: Assets/FYP Project/Scenes/Private_Room_C.unity
+    guid: 4ebd20e9894dad547bcf335c00894c58
+  - enabled: 1
     path: Assets/FYP Project/Scenes/Public_Room_A.unity
     guid: 2b9f61c9b85565d42ab6da72726fa73f
   - enabled: 1
