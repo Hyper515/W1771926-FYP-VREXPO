@@ -57,9 +57,23 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void OnEnterButtonClicked_RoomC()
     {
-        mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C;
-        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
-        PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+        var roomC = new RoomData("RoomC", true);
+        roomC.AddUserToList("Bob");
+        roomC.AddUserToList("Mike");
+
+        var userName = PhotonNetwork.NickName;
+        bool isAllowed = roomC.IsUserAllowed(userName);
+        if (isAllowed)
+        {
+            mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C;
+            ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+            PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+        }
+        else
+        {
+            Debug.Log($"{userName} Is not allowed to enter this Room {roomC.Roomname}");
+        }
+        
     }
     #endregion
 

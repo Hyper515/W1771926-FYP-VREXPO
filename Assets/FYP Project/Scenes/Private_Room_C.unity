@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 243568998}
+  parent: {fileID: 0}
 --- !u!1 &281565987
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 395480115}
   m_Layer: 0
-  m_Name: Info Spheres 2
+  m_Name: Info Group 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,6 +1015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 496186507}
+  parent: {fileID: 0}
 --- !u!1 &509339668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 526113715}
+  parent: {fileID: 0}
 --- !u!1 &741063032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1490,7 @@ MonoBehaviour:
   - {fileID: 863873480}
   - {fileID: 243181188}
   - {fileID: 1032948134}
+  orbsToToggle: []
   buttonText: {fileID: 509339670}
 --- !u!114 &780012227
 MonoBehaviour:
@@ -1726,7 +1730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 787381229}
   m_Layer: 0
-  m_Name: Info Spheres 3
+  m_Name: Info Group 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1965,6 +1969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 812804886}
+  parent: {fileID: 0}
 --- !u!1 &836391467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2091,7 @@ MonoBehaviour:
   - {fileID: 2000696026}
   - {fileID: 207793807}
   - {fileID: 1032948134}
+  orbsToToggle: []
   buttonText: {fileID: 2069942253}
 --- !u!114 &863873484
 MonoBehaviour:
@@ -2397,6 +2403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 945367404}
+  parent: {fileID: 0}
 --- !u!1 &1032948134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,7 +2870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1917406767}
   m_Layer: 0
-  m_Name: Info Spheres 1
+  m_Name: Info Group 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3102,6 +3109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1984508297}
+  parent: {fileID: 0}
 --- !u!1 &2000696026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,6 +3185,7 @@ MonoBehaviour:
   - {fileID: 863873480}
   - {fileID: 207793807}
   - {fileID: 243181188}
+  orbsToToggle: []
   buttonText: {fileID: 782407719}
 --- !u!114 &2000696030
 MonoBehaviour:

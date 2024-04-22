@@ -38,6 +38,7 @@ public class AssetToggler : MonoBehaviour
     {
         assetEnabled = !assetEnabled;
         assetToToggle.SetActive(assetEnabled);
+
         UpdateButtonText();
 
         // Toggle other panels
@@ -58,4 +59,5 @@ public class AssetToggler : MonoBehaviour
             buttonText.text = originalButtonText;
         }
     }
+
 }
