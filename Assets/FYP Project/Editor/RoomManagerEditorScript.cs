@@ -27,5 +27,20 @@ public class RoomManagerEditorScript : Editor
         {
             roomManager.OnEnterButtonClicked_RoomC();
         }
+
+        if (GUILayout.Button("Join Private Room A"))
+        {
+            roomManager.OnEnterButtonClicked_Private_RoomA();
+        }
+
+        if (GUILayout.Button("Join Private Room B"))
+        {
+            roomManager.OnEnterButtonClicked_Private_RoomB();
+        }
+
+        if (GUILayout.Button("Join Private Room C"))
+        {
+            roomManager.OnEnterButtonClicked_Private_RoomC();
+        }
     }
 }

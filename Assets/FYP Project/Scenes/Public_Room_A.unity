@@ -171,7 +171,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3eeaadc3e959e3345901635abd1438b2, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -460,7 +460,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4089c9bf842c49147aec8bff13301572, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2146,7 +2146,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cb4480e3ac6a9344f8e550127eba43fb, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2400,10 +2400,6 @@ MonoBehaviour:
   - {fileID: 863873480}
   - {fileID: 1731141645}
   - {fileID: 544807766}
-  orbsToToggle:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   buttonText: {fileID: 509339670}
 --- !u!114 &780012227
 MonoBehaviour:
@@ -2718,7 +2714,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4ad8e655168d634eb1d6e45df35679a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3018,10 +3014,6 @@ MonoBehaviour:
   - {fileID: 2000696026}
   - {fileID: 1070350271}
   - {fileID: 544807766}
-  orbsToToggle:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   buttonText: {fileID: 2069942253}
 --- !u!114 &863873484
 MonoBehaviour:
@@ -3578,7 +3570,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e19c9f2c629aa174dbac302401706430, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3942,7 +3934,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4076cb3ef6556a04493a9e0d82845794, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4306,7 +4298,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c4ad8e655168d634eb1d6e45df35679a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4906,7 +4898,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4089c9bf842c49147aec8bff13301572, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5854,10 +5846,6 @@ MonoBehaviour:
   - {fileID: 863873480}
   - {fileID: 1070350271}
   - {fileID: 1731141645}
-  orbsToToggle:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   buttonText: {fileID: 782407719}
 --- !u!114 &2000696030
 MonoBehaviour:
@@ -6004,7 +5992,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f3e3957e51e70a349974a2428c581060, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

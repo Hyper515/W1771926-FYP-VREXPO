@@ -13,6 +13,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI OccupancyRateText_For_PRB;
     public TextMeshProUGUI OccupancyRateText_For_PRC;
 
+    public TextMeshProUGUI OccupancyRateText_For_Private_RA;
+    public TextMeshProUGUI OccupancyRateText_For_Private_RB;
+    public TextMeshProUGUI OccupancyRateText_For_Private_RC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +45,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom();
     }
 
+    // Public Rooms
     public void OnEnterButtonClicked_RoomA()
     {
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_A;
@@ -57,6 +62,54 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void OnEnterButtonClicked_RoomC()
     {
+            mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C;
+            ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+            PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+    }
+
+    // Private Rooms
+    public void OnEnterButtonClicked_Private_RoomA()
+    {
+        var roomA = new RoomData("RoomB", true);
+        roomA.AddUserToList("Bob");
+        roomA.AddUserToList("Mike");
+
+        var userName = PhotonNetwork.NickName;
+        bool isAllowed = roomA.IsUserAllowed(userName);
+        if (isAllowed)
+        {
+            mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A;
+            ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+            PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+        }
+        else
+        {
+            Debug.Log($"{userName} Is not allowed to enter this Room {roomA.Roomname}");
+        }
+    }
+
+    public void OnEnterButtonClicked_Private_RoomB()
+    {
+        var roomB = new RoomData("RoomB", true);
+        roomB.AddUserToList("Bob");
+        roomB.AddUserToList("Mike");
+
+        var userName = PhotonNetwork.NickName;
+        bool isAllowed = roomB.IsUserAllowed(userName);
+        if (isAllowed)
+        {
+            mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_B;
+            ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+            PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+        }
+        else
+        {
+            Debug.Log($"{userName} Is not allowed to enter this Room {roomB.Roomname}");
+        }
+    }
+
+    public void OnEnterButtonClicked_Private_RoomC()
+    {
         var roomC = new RoomData("RoomC", true);
         roomC.AddUserToList("Bob");
         roomC.AddUserToList("Mike");
@@ -65,7 +118,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         bool isAllowed = roomC.IsUserAllowed(userName);
         if (isAllowed)
         {
-            mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C;
+            mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_C;
             ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
             PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
         }
@@ -73,7 +126,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             Debug.Log($"{userName} Is not allowed to enter this Room {roomC.Roomname}");
         }
-        
+
     }
     #endregion
 
@@ -121,6 +174,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
                     //load Public_Room_C scene
                     PhotonNetwork.LoadLevel("Public_Room_C");
                 }
+                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A)
+                {
+                    //load Private_Room_A scene
+                    PhotonNetwork.LoadLevel("Private_Room_A");
+                }
+                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_B)
+                {
+                    //load Private_Room_B scene
+                    PhotonNetwork.LoadLevel("Private_Room_B");
+                }
+                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_C)
+                {
+                    //load Private_Room_C scene
+                    PhotonNetwork.LoadLevel("Private_Room_C");
+                }
             }
         }
 
@@ -139,6 +207,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
             OccupancyRateText_For_PRA.text = 0 + " / " + 20;
             OccupancyRateText_For_PRB.text = 0 + " / " + 20;
             OccupancyRateText_For_PRC.text = 0 + " / " + 20;
+            OccupancyRateText_For_Private_RA.text = 0 + " / " + 20;
+            OccupancyRateText_For_Private_RB.text = 0 + " / " + 20;
+            OccupancyRateText_For_Private_RC.text = 0 + " / " + 20;
         }
 
         foreach (RoomInfo room in roomList) 
@@ -163,6 +234,27 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 //Update Room C room occupancy field
                 Debug.Log("Room is Public Room C. Player count is: " + room.PlayerCount);
                 OccupancyRateText_For_PRC.text = room.PlayerCount + " / " + 20;
+
+            }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_B))
+            {
+                //Update Private Room A room occupancy field
+                Debug.Log("Room is Private Room A. Player count is: " + room.PlayerCount);
+                OccupancyRateText_For_Private_RA.text = room.PlayerCount + " / " + 20;
+
+            }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C))
+            {
+                //Update Private Room B room occupancy field
+                Debug.Log("Room is Private Room B. Player count is: " + room.PlayerCount);
+                OccupancyRateText_For_Private_RB.text = room.PlayerCount + " / " + 20;
+
+            }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_B))
+            {
+                //Update Private Room C room occupancy field
+                Debug.Log("Room is Private Room C. Player count is: " + room.PlayerCount);
+                OccupancyRateText_For_Private_RC.text = room.PlayerCount + " / " + 20;
 
             }
         }
