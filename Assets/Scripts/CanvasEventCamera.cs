@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CanvasEventCamera : MonoBehaviour
 {
-    public Canvas canvas;
+    public Canvas[] canvases; // Array of Canvas objects
     public Camera eventCamera;
 
     // Start is called before the first frame update
@@ -20,16 +20,20 @@ public class CanvasEventCamera : MonoBehaviour
         else
         {
             Debug.Log("Main Camera found: " + eventCamera.name);
-            // Now you can use 'mainCamera' variable as needed
+            // Now you can use 'eventCamera' variable as needed
         }
 
-        // Assign the event camera to the canvas
-        canvas.worldCamera = eventCamera;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Assign the event camera to each canvas in the array
+        foreach (Canvas canvas in canvases)
+        {
+            if (canvas != null)
+            {
+                canvas.worldCamera = eventCamera;
+            }
+            else
+            {
+                Debug.LogWarning("Canvas reference is null.");
+            }
+        }
     }
 }

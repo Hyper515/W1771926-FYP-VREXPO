@@ -6455,6 +6455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14c3cfad3a89c643a7f88c733b486d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHardcodedUserNames: 1
   OccupancyRateText_For_PRA: {fileID: 3353666618762070702}
   OccupancyRateText_For_PRB: {fileID: 549220745}
   OccupancyRateText_For_PRC: {fileID: 2029734742}

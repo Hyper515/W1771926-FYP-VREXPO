@@ -9,6 +9,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     private string mapType;
 
+    // Update UserNames, set to true
+    public bool isHardcodedUserNames = true;
+    public bool encryptedDataInPlayFab = true;
+
+
     public TextMeshProUGUI OccupancyRateText_For_PRA;
     public TextMeshProUGUI OccupancyRateText_For_PRB;
     public TextMeshProUGUI OccupancyRateText_For_PRC;
@@ -30,6 +35,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.JoinLobby();
         }
+        PlayFabUtiils.ConnectToPlayFab();
     }
 
     // Update is called once per frame
@@ -70,12 +76,35 @@ public class RoomManager : MonoBehaviourPunCallbacks
     // Private Rooms
     public void OnEnterButtonClicked_Private_RoomA()
     {
-        var roomA = new RoomData("RoomB", true);
-        roomA.AddUserToList("Bob");
-        roomA.AddUserToList("Mike");
+        string roomName = "RoomA";
+ 
+        RoomData room = null;
+
+        if (isHardcodedUserNames)
+        {
+            room = new RoomData(roomName, true);
+            room.AddUserToList("Bob");
+            room.AddUserToList("Mike");
+            room.AddUserToList("Ethan");
+
+            PlayFabUtiils.StoreJsonInPlayFab(room, encryptedDataInPlayFab);
+
+            // Retrieve updated data
+            room = PlayFabUtiils.RetrieveJsonFromPlayFab(roomName, encryptedDataInPlayFab);
+        }
+        else
+        {
+            room = PlayFabUtiils.RetrieveJsonFromPlayFab(roomName, encryptedDataInPlayFab);
+
+            if (room == null)
+            {
+                Debug.Log($"Cannot retrieve RoomData from PlayFab : {roomName}");
+                return;
+            }
+        }
 
         var userName = PhotonNetwork.NickName;
-        bool isAllowed = roomA.IsUserAllowed(userName);
+        bool isAllowed = room.IsUserAllowed(userName);
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A;
@@ -84,7 +113,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            Debug.Log($"{userName} Is not allowed to enter this Room {roomA.Roomname}");
+            Debug.Log($"{userName} Is not allowed to enter this Room {room.Roomname}");
         }
     }
 
