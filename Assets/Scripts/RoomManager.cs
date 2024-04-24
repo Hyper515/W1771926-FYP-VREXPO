@@ -83,9 +83,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (isHardcodedUserNames)
         {
             room = new RoomData(roomName, true);
-            room.AddUserToList("Bob");
-            room.AddUserToList("Mike");
-            room.AddUserToList("Ethan");
+            room.AddUserToList("BobA");
+            room.AddUserToList("AliceA");
+            room.AddUserToList("EthanA");
 
             PlayFabUtiils.StoreJsonInPlayFab(room, encryptedDataInPlayFab);
 
@@ -119,12 +119,35 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public void OnEnterButtonClicked_Private_RoomB()
     {
-        var roomB = new RoomData("RoomB", true);
-        roomB.AddUserToList("Bob");
-        roomB.AddUserToList("Mike");
+        string roomName = "RoomB";
+
+        RoomData room = null;
+
+        if (isHardcodedUserNames)
+        {
+            room = new RoomData(roomName, true);
+            room.AddUserToList("BobB");
+            room.AddUserToList("AliceB");
+            room.AddUserToList("EthanB");
+
+            PlayFabUtiils.StoreJsonInPlayFab(room, encryptedDataInPlayFab);
+
+            // Retrieve updated data
+            room = PlayFabUtiils.RetrieveJsonFromPlayFab(roomName, encryptedDataInPlayFab);
+        }
+        else
+        {
+            room = PlayFabUtiils.RetrieveJsonFromPlayFab(roomName, encryptedDataInPlayFab);
+
+            if (room == null)
+            {
+                Debug.Log($"Cannot retrieve RoomData from PlayFab : {roomName}");
+                return;
+            }
+        }
 
         var userName = PhotonNetwork.NickName;
-        bool isAllowed = roomB.IsUserAllowed(userName);
+        bool isAllowed = room.IsUserAllowed(userName);
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_B;
@@ -133,18 +156,41 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            Debug.Log($"{userName} Is not allowed to enter this Room {roomB.Roomname}");
+            Debug.Log($"{userName} Is not allowed to enter this Room {room.Roomname}");
         }
     }
 
     public void OnEnterButtonClicked_Private_RoomC()
     {
-        var roomC = new RoomData("RoomC", true);
-        roomC.AddUserToList("Bob");
-        roomC.AddUserToList("Mike");
+        string roomName = "RoomC";
+
+        RoomData room = null;
+
+        if (isHardcodedUserNames)
+        {
+            room = new RoomData(roomName, true);
+            room.AddUserToList("BobC");
+            room.AddUserToList("AliceC");
+            room.AddUserToList("EthanC");
+
+            PlayFabUtiils.StoreJsonInPlayFab(room, encryptedDataInPlayFab);
+
+            // Retrieve updated data
+            room = PlayFabUtiils.RetrieveJsonFromPlayFab(roomName, encryptedDataInPlayFab);
+        }
+        else
+        {
+            room = PlayFabUtiils.RetrieveJsonFromPlayFab(roomName, encryptedDataInPlayFab);
+
+            if (room == null)
+            {
+                Debug.Log($"Cannot retrieve RoomData from PlayFab : {roomName}");
+                return;
+            }
+        }
 
         var userName = PhotonNetwork.NickName;
-        bool isAllowed = roomC.IsUserAllowed(userName);
+        bool isAllowed = room.IsUserAllowed(userName);
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_C;
@@ -153,7 +199,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            Debug.Log($"{userName} Is not allowed to enter this Room {roomC.Roomname}");
+            Debug.Log($"{userName} Is not allowed to enter this Room {room.Roomname}");
         }
 
     }
