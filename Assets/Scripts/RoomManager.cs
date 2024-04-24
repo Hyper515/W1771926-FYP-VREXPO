@@ -311,21 +311,21 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 OccupancyRateText_For_PRC.text = room.PlayerCount + " / " + 20;
 
             }
-            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_B))
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A))
             {
                 //Update Private Room A room occupancy field
                 Debug.Log("Room is Private Room A. Player count is: " + room.PlayerCount);
                 OccupancyRateText_For_Private_RA.text = room.PlayerCount + " / " + 20;
 
             }
-            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C))
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_B))
             {
                 //Update Private Room B room occupancy field
                 Debug.Log("Room is Private Room B. Player count is: " + room.PlayerCount);
                 OccupancyRateText_For_Private_RB.text = room.PlayerCount + " / " + 20;
 
             }
-            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_B))
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_C))
             {
                 //Update Private Room C room occupancy field
                 Debug.Log("Room is Private Room C. Player count is: " + room.PlayerCount);
