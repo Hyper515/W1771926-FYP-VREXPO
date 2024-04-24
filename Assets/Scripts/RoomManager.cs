@@ -10,7 +10,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     private string mapType;
 
     // Update UserNames, set to true
-    public bool isHardcodedUserNames = true;
+    public bool isHardcodedUserNames = false;
     public bool encryptedDataInPlayFab = true;
 
 
