@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using System.Threading.Tasks;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -25,9 +26,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        SetUpSystem();
+    }
+
+    internal void SetUpSystem()
+    {
+        Debug.Log("RoomManager SetUpSystem called!");
+
         PhotonNetwork.AutomaticallySyncScene = true;
 
-        if (!PhotonNetwork.IsConnectedAndReady) 
+        if (!PhotonNetwork.IsConnectedAndReady)
         {
             PhotonNetwork.ConnectUsingSettings();
         }

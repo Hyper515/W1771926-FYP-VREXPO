@@ -6,6 +6,7 @@ using System.IO;
 using Leguar.TotalJSON;
 using PlayFab;
 using PlayFab.ClientModels;
+using System.Threading.Tasks;
 //using PlayFab.PfEditor.EditorModels;
 
 public static class PlayFabUtiils
@@ -14,6 +15,7 @@ public static class PlayFabUtiils
 
     public static void ConnectToPlayFab()
     {
+        
         LoginToPlayFab();
     }
 
@@ -22,12 +24,12 @@ public static class PlayFabUtiils
         roomData.SavePlayerData(fileName);
     }
 
-    public static void LoadPlayerData(RoomData roomData, string fileName)
+    public static RoomData LoadPlayerData(string fileName)
     {
-        roomData = RoomData.LoadPlayerData(fileName);
+        return RoomData.LoadPlayerData(fileName);
     }
 
-    static void LoginToPlayFab()
+    internal static void LoginToPlayFab()
     {
         LoginWithCustomIDRequest request = new LoginWithCustomIDRequest()
         {
@@ -35,7 +37,16 @@ public static class PlayFabUtiils
             CustomId = Uid,
         };
 
+        Debug.Log("Attempting to Login to Playfab");
+
         PlayFabClientAPI.LoginWithCustomID(request, PlayFabLoginResults, PlayFabLoginError);
+    }
+    
+    internal static async Task LoginToPlayFabAsync()
+    {
+        LoginToPlayFab();
+
+        await Task.Delay(5000); // Wait for the async operation to complete
     }
 
     static void PlayFabLoginResults(LoginResult loginResult)
@@ -70,9 +81,9 @@ public static class PlayFabUtiils
         PlayFabClientAPI.UpdateUserData(request, OnDataUpdateSuccess, OnError);
     }
 
-    private static string RoomNameKeyInternal;
-    private static RoomData RoomDataInternal;
-    private static bool EncryptedDataInPlayFab;
+    internal static string RoomNameKeyInternal;
+    internal static RoomData RoomDataInternal;
+    internal static bool EncryptedDataInPlayFab;
 
     public static RoomData RetrieveJsonFromPlayFab(string roomNameKey, bool encryptedDataInPlayFab)
     {
@@ -95,7 +106,7 @@ public static class PlayFabUtiils
             Debug.Log("Retrieved JSON data from PlayFab: " + jsonData);
 
             // Process the retrieved JSON data as needed
-            ProcessJsonData(jsonData);
+            ProcessJsonData(EncryptedDataInPlayFab, jsonData);
         }
         else
         {
@@ -108,9 +119,11 @@ public static class PlayFabUtiils
         Debug.LogError("PlayFab Error: " + error.GenerateErrorReport());
     }
 
-    private static void ProcessJsonData(string jsonData)
+    internal static void ProcessJsonData(bool isEncrypted, string jsonData)
     {
-        string json = RoomData.DecryptJSON(jsonData);
-        RoomDataInternal = EncryptedDataInPlayFab ? RoomData.ConvertJSONStringToRoomData(json) : RoomData.ConvertJSONStringToRoomData(jsonData);
+        string json = null;
+        if (isEncrypted) json = RoomData.DecryptJSON(jsonData);
+
+        RoomDataInternal = isEncrypted ? RoomData.ConvertJSONStringToRoomData(json) : RoomData.ConvertJSONStringToRoomData(jsonData);
     }
 }

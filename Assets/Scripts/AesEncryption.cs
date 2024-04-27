@@ -9,11 +9,23 @@ using UnityEngine;
 public class AesEncryption
 {
     // The encryption key and initialization vector (IV)
-    private static string key = "1234567890123456";
-    private static string iv = "abcdefghijklmnop";
+    private string key = "1234567890123456";
+    private string iv = "abcdefghijklmnop";
 
     public AesEncryption()
     {
+        // Ensure that the key and IV are of appropriate length
+        if (key.Length != 16 || iv.Length != 16)
+        {
+            throw new ArgumentException("Key and IV must be 16 characters long.");
+        }
+    }
+    
+    public AesEncryption(string sKey, string sIv)
+    {
+        key = sKey;
+        iv = sIv;
+        
         // Ensure that the key and IV are of appropriate length
         if (key.Length != 16 || iv.Length != 16)
         {
