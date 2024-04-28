@@ -111,6 +111,7 @@ public static class PlayFabUtiils
         else
         {
             Debug.LogError("No JSON data found in PlayFab");
+            RoomDataInternal = null;
         }
     }
 

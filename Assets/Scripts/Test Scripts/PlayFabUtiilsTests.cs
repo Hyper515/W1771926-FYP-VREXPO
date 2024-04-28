@@ -20,13 +20,9 @@ public class PlayFabUtiilsTests
     [SetUp]
     public void SetUp()   
     {
-        //LoginToPlayFab();
-        PlayFabUtiils.ConnectToPlayFab();
-        Thread.Sleep(5000);
-        //PlayFabUtiils.LoginToPlayFabAsync().GetAwaiter().GetResult();
-        //PlayFabUtiils.ConnectToPlayFab().GetAwaiter().GetResult();
+        MockPlayFabUtiils.ConnectToPlayFab();
         roomData = new RoomData("TestRoom", true);
-        PlayFabUtiils.SavePlayerData(roomData, "TestData.json");
+        MockPlayFabUtiils.SavePlayerData(roomData, "TestData.json");
     }
 
     [TearDown]
@@ -43,7 +39,7 @@ public class PlayFabUtiilsTests
     public void PlayFabUtiils_Login()
     {
         //LoginToPlayFab();
-        PlayFabUtiils.ConnectToPlayFab();
+        MockPlayFabUtiils.ConnectToPlayFab();
         Thread.Sleep(5000);
     }
 
@@ -51,7 +47,7 @@ public class PlayFabUtiilsTests
     public void SavePlayerData_WithValidData_SavesDataToFile()
     {
         // Act
-        PlayFabUtiils.SavePlayerData(roomData, "TestData.json");
+        MockPlayFabUtiils.SavePlayerData(roomData, "TestData.json");
 
         // Assert
         Assert.IsTrue(File.Exists("TestData.json"));
@@ -84,34 +80,34 @@ public class PlayFabUtiilsTests
     public void StoreJsonInPlayFab_WithEncryptedData_StoresDataInPlayFab()
     {
         // Act
-        PlayFabUtiils.StoreJsonInPlayFab(roomData, true);
+        MockPlayFabUtiils.StoreJsonInPlayFab(roomData, true);
 
         // Assert
-        Assert.IsTrue(PlayFabUtiils.RoomDataInternal != null);
-        Assert.AreEqual("TestRoom", PlayFabUtiils.RoomDataInternal.Roomname);
-        Assert.IsTrue(PlayFabUtiils.RoomDataInternal.IsPrivate);
+        Assert.IsTrue(MockPlayFabUtiils.RoomDataInternal != null);
+        Assert.AreEqual("TestRoom", MockPlayFabUtiils.RoomDataInternal.Roomname);
+        Assert.IsTrue(MockPlayFabUtiils.RoomDataInternal.IsPrivate);
     }
 
     [Test]
     public void StoreJsonInPlayFab_WithUnencryptedData_StoresDataInPlayFab()
     {
         // Act
-        PlayFabUtiils.StoreJsonInPlayFab(roomData, false);
+        MockPlayFabUtiils.StoreJsonInPlayFab(roomData, false);
 
         // Assert
-        Assert.IsTrue(PlayFabUtiils.RoomDataInternal != null);
-        Assert.AreEqual("TestRoom", PlayFabUtiils.RoomDataInternal.Roomname);
-        Assert.IsTrue(PlayFabUtiils.RoomDataInternal.IsPrivate);
+        Assert.IsTrue(MockPlayFabUtiils.RoomDataInternal != null);
+        Assert.AreEqual("TestRoom", MockPlayFabUtiils.RoomDataInternal.Roomname);
+        Assert.IsTrue(MockPlayFabUtiils.RoomDataInternal.IsPrivate);
     }
 
     [Test]
     public void RetrieveJsonFromPlayFab_WithEncryptedData_RetrievesDataFromPlayFab()
     {
         // Arrange
-        PlayFabUtiils.StoreJsonInPlayFab(roomData, true);
+        MockPlayFabUtiils.StoreJsonInPlayFab(roomData, true);
 
         // Act
-        RoomData retrievedRoomData = PlayFabUtiils.RetrieveJsonFromPlayFab("TestRoom", true);
+        RoomData retrievedRoomData = MockPlayFabUtiils.RetrieveJsonFromPlayFab("TestRoom", true);
 
         // Assert
         Assert.IsNotNull(retrievedRoomData);
@@ -123,10 +119,10 @@ public class PlayFabUtiilsTests
     public void RetrieveJsonFromPlayFab_WithUnencryptedData_RetrievesDataFromPlayFab()
     {
         // Arrange
-        PlayFabUtiils.StoreJsonInPlayFab(roomData, false);
+        MockPlayFabUtiils.StoreJsonInPlayFab(roomData, false);
 
         // Act
-        RoomData retrievedRoomData = PlayFabUtiils.RetrieveJsonFromPlayFab("TestRoom", false);
+        RoomData retrievedRoomData = MockPlayFabUtiils.RetrieveJsonFromPlayFab("TestRoom", false);
 
         // Assert
         Assert.IsNotNull(retrievedRoomData);
@@ -138,7 +134,7 @@ public class PlayFabUtiilsTests
     public void RetrieveJsonFromPlayFab_WithNonExistentRoom_ReturnsNull()
     {
         // Act
-        RoomData retrievedRoomData = PlayFabUtiils.RetrieveJsonFromPlayFab("NonExistentRoom", true);
+        RoomData retrievedRoomData = MockPlayFabUtiils.RetrieveJsonFromPlayFab("NonExistentRoom", true);
 
         // Assert
         Assert.IsNull(retrievedRoomData);
