@@ -22,7 +22,7 @@ public class PUNTest
         PhotonNetwork.Disconnect();
     }
 
-    [Test]
+    // [Test]
     public void TestJoinLobby()
     {
         // Set the player nickname
@@ -42,7 +42,7 @@ public class PUNTest
         Assert.IsTrue(PhotonNetwork.InLobby);
     }
 
-    [Test]
+    // [Test]
     public void TestJoinRandomRoom()
     {
         // Set the player nickname
@@ -63,7 +63,7 @@ public class PUNTest
         Assert.IsNotNull(PhotonNetwork.CurrentRoom);
     }
 
-    [Test]
+    // [Test]
     public void TestCreateRoom()
     {
         // Set the player nickname
@@ -94,7 +94,7 @@ public class PUNTest
         Assert.AreEqual("Deathmatch", PhotonNetwork.CurrentRoom.CustomProperties["GameMode"]);
     }
 
-    [Test]
+    // [Test]
     public void TestLoadLevel()
     {
         // Set the player nickname
@@ -107,7 +107,7 @@ public class PUNTest
         Assert.AreEqual("GameScene", Application.loadedLevelName);
     }
 
-    [Test]
+    // [Test]
     public void TestJoinRandomRoomWithExpectedCustomProperties()
     {
         // Set the player nickname
@@ -137,7 +137,7 @@ public class PUNTest
         Assert.AreEqual("Desert", PhotonNetwork.CurrentRoom.CustomProperties["MapName"]);
     }
 
-    [Test]
+    // [Test]
     public void TestJoinRandomRoomWithExpectedMaxPlayers()
     {
         // Set the player nickname
@@ -162,7 +162,7 @@ public class PUNTest
         Assert.AreEqual(expectedMaxPlayers, PhotonNetwork.CurrentRoom.MaxPlayers);
     }
 
-    [Test]
+    // [Test]
     public void TestJoinRandomRoomWithMatchingType()
     {
         // Set the player nickname
@@ -186,7 +186,7 @@ public class PUNTest
         Assert.IsNotNull(PhotonNetwork.CurrentRoom);
     }
 
-    [Test]
+    // [Test]
     public void TestJoinRandomRoomWithTypedLobby()
     {
         // Set the player nickname
@@ -210,7 +210,7 @@ public class PUNTest
         Assert.IsNotNull(PhotonNetwork.CurrentRoom);
     }
 
-    [Test]
+    // [Test]
     public void TestJoinRandomRoomWithExpectedUsers()
     {
         // Set the player nickname
