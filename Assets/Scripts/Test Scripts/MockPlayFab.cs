@@ -35,16 +35,6 @@ public static class MockPlayFabUtiils
         LoginToPlayFab();
     }
 
-    public static void SavePlayerData(RoomData roomData, string fileName)
-    {
-        roomData.SavePlayerData(fileName);
-    }
-
-    public static void LoadPlayerData(RoomData roomData, string fileName)
-    {
-        roomData = RoomData.LoadPlayerData(fileName);
-    }
-
     static void LoginToPlayFab()
     {
         MockPlayFabClientAPI.LoginWithCustomID(Uid, true);

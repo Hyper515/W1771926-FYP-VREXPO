@@ -1,14 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using NUnit.Framework;
 using System;
 using System.IO;
-using SimpleJSON;
-using PlayFab;
-using PlayFab.ClientModels;
-using PlayFab.PfEditor.EditorModels;
-using System.Threading.Tasks;
 using System.Threading;
 
 [TestFixture]
@@ -22,7 +14,7 @@ public class PlayFabUtiilsTests
     {
         MockPlayFabUtiils.ConnectToPlayFab();
         roomData = new RoomData("TestRoom", true);
-        MockPlayFabUtiils.SavePlayerData(roomData, "TestData.json");
+        PlayFabUtiils.SavePlayerData(roomData, "TestData.json");
     }
 
     [TearDown]
@@ -47,7 +39,7 @@ public class PlayFabUtiilsTests
     public void SavePlayerData_WithValidData_SavesDataToFile()
     {
         // Act
-        MockPlayFabUtiils.SavePlayerData(roomData, "TestData.json");
+        PlayFabUtiils.SavePlayerData(roomData, "TestData.json");
 
         // Assert
         Assert.IsTrue(File.Exists("TestData.json"));
