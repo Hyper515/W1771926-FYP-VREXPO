@@ -2704,7 +2704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GenericVRPlayerPrefab: {fileID: 823671102148903054, guid: 9097bba3ad47ea449b81cf4f0155f221, type: 3}
-  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnPosition: {x: 0, y: 1, z: 0}
 --- !u!1 &863873480
 GameObject:
   m_ObjectHideFlags: 0
