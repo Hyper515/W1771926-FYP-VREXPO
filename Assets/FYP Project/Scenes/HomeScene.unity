@@ -1194,7 +1194,7 @@ GameObject:
   - component: {fileID: 489733861}
   - component: {fileID: 489733860}
   m_Layer: 5
-  m_Name: Text_OccupancyRate
+  m_Name: Text_OccupancyRate_PrivC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 549220744}
   - component: {fileID: 549220745}
   m_Layer: 5
-  m_Name: Text_OccupancyRate
+  m_Name: Text_OccupancyRate_PubB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4670,7 +4670,7 @@ GameObject:
   - component: {fileID: 1404590409}
   - component: {fileID: 1404590408}
   m_Layer: 5
-  m_Name: Text_OccupancyRate
+  m_Name: Text_OccupancyRate_PrivB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5666,7 +5666,7 @@ GameObject:
   - component: {fileID: 1597379538}
   - component: {fileID: 1597379537}
   m_Layer: 5
-  m_Name: Text_OccupancyRate
+  m_Name: Text_OccupancyRate_PrivA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6455,7 +6455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14c3cfad3a89c643a7f88c733b486d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHardcodedUserNames: 1
+  isHardcodedUserNames: 0
+  encryptedDataInPlayFab: 1
+  overridePrivateRoomLoginForTest: 0
   OccupancyRateText_For_PRA: {fileID: 3353666618762070702}
   OccupancyRateText_For_PRB: {fileID: 549220745}
   OccupancyRateText_For_PRC: {fileID: 2029734742}
@@ -6831,7 +6833,7 @@ GameObject:
   - component: {fileID: 2029734743}
   - component: {fileID: 2029734742}
   m_Layer: 5
-  m_Name: Text_OccupancyRate
+  m_Name: Text_OccupancyRate_PubC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43463,7 +43465,7 @@ GameObject:
   - component: {fileID: 3353666618762070703}
   - component: {fileID: 3353666618762070702}
   m_Layer: 5
-  m_Name: Text_OccupancyRate
+  m_Name: Text_OccupancyRate_PubA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

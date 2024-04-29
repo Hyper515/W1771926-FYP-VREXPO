@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     // Update UserNames, set to true
     public bool isHardcodedUserNames = false;
     public bool encryptedDataInPlayFab = true;
+    public bool overridePrivateRoomLoginForTest = false;
 
 
     public TextMeshProUGUI OccupancyRateText_For_PRA;
@@ -112,8 +113,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
 
         var userName = PhotonNetwork.NickName;
-        //bool isAllowed = room.IsUserAllowed(userName);
-        bool isAllowed = true;
+        bool isAllowed = overridePrivateRoomLoginForTest || room.IsUserAllowed(userName);
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A;
@@ -156,8 +156,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
 
         var userName = PhotonNetwork.NickName;
-        //bool isAllowed = room.IsUserAllowed(userName);
-        bool isAllowed = true;
+        bool isAllowed = overridePrivateRoomLoginForTest || room.IsUserAllowed(userName);
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_B;
@@ -200,8 +199,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
 
         var userName = PhotonNetwork.NickName;
-        //bool isAllowed = room.IsUserAllowed(userName);
-        bool isAllowed = true;
+        bool isAllowed = overridePrivateRoomLoginForTest || room.IsUserAllowed(userName);
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_C;
@@ -289,60 +287,64 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (roomList.Count == 0) 
         {
+
+            string defaultValue = "0 / 20";
             //The room doesn't exist
-            OccupancyRateText_For_PRA.text = 0 + " / " + 20;
-            OccupancyRateText_For_PRB.text = 0 + " / " + 20;
-            OccupancyRateText_For_PRC.text = 0 + " / " + 20;
-            OccupancyRateText_For_Private_RA.text = 0 + " / " + 20;
-            OccupancyRateText_For_Private_RB.text = 0 + " / " + 20;
-            OccupancyRateText_For_Private_RC.text = 0 + " / " + 20;
+            OccupancyRateText_For_PRA.text = defaultValue;
+            OccupancyRateText_For_PRB.text = defaultValue;
+            OccupancyRateText_For_PRC.text = defaultValue;
+            OccupancyRateText_For_Private_RA.text = defaultValue;
+            OccupancyRateText_For_Private_RB.text = defaultValue;
+            OccupancyRateText_For_Private_RC.text = defaultValue;
         }
 
         foreach (RoomInfo room in roomList) 
         {
+            string updatedValue = $"{room.PlayerCount} / 20";
             Debug.Log(room.Name);
 
-            if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_A)) 
-            {
-                //Update Room A room occupancy field
-                Debug.Log("Room is Public Room A. Player count is: " + room.PlayerCount);
-                OccupancyRateText_For_PRA.text = room.PlayerCount + " / " + 20;
-            }
-            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_B)) 
-            {
-                //Update Room B room occupancy field
-                Debug.Log("Room is Public Room B. Player count is: " + room.PlayerCount);
-                OccupancyRateText_For_PRB.text = room.PlayerCount + " / " + 20;
-
-            }
-            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C))
-            {
-                //Update Room C room occupancy field
-                Debug.Log("Room is Public Room C. Player count is: " + room.PlayerCount);
-                OccupancyRateText_For_PRC.text = room.PlayerCount + " / " + 20;
-
-            }
-            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A))
+            if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A))
             {
                 //Update Private Room A room occupancy field
                 Debug.Log("Room is Private Room A. Player count is: " + room.PlayerCount);
-                OccupancyRateText_For_Private_RA.text = room.PlayerCount + " / " + 20;
+                OccupancyRateText_For_Private_RA.text = updatedValue;
 
             }
             else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_B))
             {
                 //Update Private Room B room occupancy field
                 Debug.Log("Room is Private Room B. Player count is: " + room.PlayerCount);
-                OccupancyRateText_For_Private_RB.text = room.PlayerCount + " / " + 20;
+                OccupancyRateText_For_Private_RB.text = updatedValue;
 
             }
             else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_C))
             {
                 //Update Private Room C room occupancy field
                 Debug.Log("Room is Private Room C. Player count is: " + room.PlayerCount);
-                OccupancyRateText_For_Private_RC.text = room.PlayerCount + " / " + 20;
+                OccupancyRateText_For_Private_RC.text = updatedValue;
 
             }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_A)) 
+            {
+                //Update Room A room occupancy field
+                Debug.Log("Room is Public Room A. Player count is: " + room.PlayerCount);
+                OccupancyRateText_For_PRA.text = updatedValue;
+            }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_B)) 
+            {
+                //Update Room B room occupancy field
+                Debug.Log("Room is Public Room B. Player count is: " + room.PlayerCount);
+                OccupancyRateText_For_PRB.text = updatedValue;
+
+            }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_ROOM_C))
+            {
+                //Update Room C room occupancy field
+                Debug.Log("Room is Public Room C. Player count is: " + room.PlayerCount);
+                OccupancyRateText_For_PRC.text = updatedValue;
+
+            }
+            
         }
     }
 
