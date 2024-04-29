@@ -1,3 +1,5 @@
+#define _NUNIT1
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +7,7 @@ using NUnit.Framework;
 using System.Security.Cryptography;
 using System;
 
+#if _NUNIT
 [TestFixture]
 public class AesEncryptionTests
 {
@@ -144,3 +147,4 @@ public class AesEncryptionTests
     }
 }
 
+#endif

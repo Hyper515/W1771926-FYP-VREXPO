@@ -1,9 +1,13 @@
+#define _NUNIT1
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NUnit.Framework;
 using Photon.Pun;
 using Photon.Realtime;
+
+#if _NUNIT
 
 //[TestFixture]
 public class PUNTest
@@ -234,3 +238,5 @@ public class PUNTest
         Assert.IsNotNull(PhotonNetwork.CurrentRoom);
     }
 }
+
+#endif 

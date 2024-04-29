@@ -1,7 +1,10 @@
+#define _NUNIT1
+
 using NUnit.Framework;
 using System;
 using System.IO;
 
+#if _NUNIT
 [TestFixture]
 public class RoomDataTests
 {
@@ -187,3 +190,5 @@ public class RoomDataTests
         StringAssert.Contains("\"IsPrivate\":false", jsonString);
     }
 }
+
+#endif

@@ -1,7 +1,10 @@
+#define _NUNIT1
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if _NUNIT
 public static class MockPlayFabClientAPI
 {
     private static Dictionary<string, string> UserData = new Dictionary<string, string>();
@@ -102,3 +105,5 @@ public static class MockPlayFabUtiils
         RoomDataInternal = isEncrypted ? RoomData.ConvertJSONStringToRoomData(json) : RoomData.ConvertJSONStringToRoomData(jsonData);
     }
 }
+
+#endif

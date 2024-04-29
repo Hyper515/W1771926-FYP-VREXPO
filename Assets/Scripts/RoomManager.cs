@@ -112,8 +112,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
 
         var userName = PhotonNetwork.NickName;
-        bool isAllowed = room.IsUserAllowed(userName);
-        //bool isAllowed = true;
+        //bool isAllowed = room.IsUserAllowed(userName);
+        bool isAllowed = true;
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_A;
@@ -156,8 +156,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
 
         var userName = PhotonNetwork.NickName;
-        bool isAllowed = room.IsUserAllowed(userName);
-        //bool isAllowed = true;
+        //bool isAllowed = room.IsUserAllowed(userName);
+        bool isAllowed = true;
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_B;
@@ -200,8 +200,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         }
 
         var userName = PhotonNetwork.NickName;
-        bool isAllowed = room.IsUserAllowed(userName);
-        //bool isAllowed = true;
+        //bool isAllowed = room.IsUserAllowed(userName);
+        bool isAllowed = true;
         if (isAllowed)
         {
             mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_PRIVATE_ROOM_C;

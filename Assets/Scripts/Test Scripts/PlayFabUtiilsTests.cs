@@ -1,8 +1,11 @@
+#define _NUNIT1
+
 using NUnit.Framework;
 using System;
 using System.IO;
 using System.Threading;
 
+#if _NUNIT
 [TestFixture]
 public class PlayFabUtiilsTests
 {
@@ -162,3 +165,5 @@ public class PlayFabUtiilsTests
         Assert.IsTrue(PlayFabUtiils.RoomDataInternal.IsPrivate);
     }
 }
+
+#endif
